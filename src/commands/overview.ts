@@ -355,9 +355,29 @@ export async function overview(
 
   const folders = buildOverview(v.path, maxDepth, maxKeywords);
 
+  // Load context note if present
+  const contextPath = path.join(v.path, "NAPKIN.md");
+  const context = fs.existsSync(contextPath)
+    ? fs.readFileSync(contextPath, "utf-8").trim()
+    : null;
+
   output(opts, {
-    json: () => ({ overview: folders }),
+    json: () => ({
+      ...(context ? { context } : {}),
+      overview: folders,
+    }),
     human: () => {
+      console.log(
+        dim(
+          "WORKFLOW: overview (you are here) → search <query> → read <file>",
+        ),
+      );
+      console.log("");
+      if (context) {
+        console.log(bold("CONTEXT"));
+        console.log(context);
+        console.log("");
+      }
       if (folders.length === 0) {
         console.log("Empty vault");
         return;
