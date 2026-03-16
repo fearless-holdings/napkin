@@ -1,4 +1,4 @@
-import { loadConfig, saveConfig, updateConfig } from "../utils/config.js";
+import { loadConfig, updateConfig } from "../utils/config.js";
 import { EXIT_USER_ERROR } from "../utils/exit-codes.js";
 import {
   bold,

@@ -59,8 +59,8 @@ describe("search", () => {
     expect(results.length).toBeGreaterThan(0);
     const alpha = results.find((r) => r.file === "Projects/alpha.md");
     expect(alpha).toBeDefined();
-    expect(alpha!.snippets.length).toBeGreaterThan(0);
-    expect(alpha!.snippets.some((s) => s.text.includes("TODO"))).toBeTrue();
+    expect(alpha?.snippets.length).toBeGreaterThan(0);
+    expect(alpha?.snippets.some((s) => s.text.includes("TODO"))).toBeTrue();
   });
 
   test("no-snippets returns files only", async () => {
@@ -113,7 +113,7 @@ describe("search", () => {
     const alpha = results.find((r) => r.file === "Projects/alpha.md");
     expect(alpha).toBeDefined();
     // guide.md links to [[alpha]], so alpha should have links >= 1
-    expect(alpha!.links).toBeGreaterThanOrEqual(1);
+    expect(alpha?.links).toBeGreaterThanOrEqual(1);
   });
 
   test("results include modified time", async () => {
@@ -139,7 +139,7 @@ describe("search", () => {
     const alpha = results.find((r: any) => r.file === "Projects/alpha.md");
     expect(alpha).toBeDefined();
     // With context=1, should include lines around the match
-    expect(alpha!.snippets.length).toBeGreaterThan(1);
+    expect(alpha?.snippets.length).toBeGreaterThan(1);
   });
 
   test("empty query returns no results", async () => {

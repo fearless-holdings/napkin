@@ -1,4 +1,5 @@
 import type { VaultTemplate } from "./types.js";
+
 export type { VaultTemplate };
 
 import { coding } from "./coding.js";

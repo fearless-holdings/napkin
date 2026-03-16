@@ -2,12 +2,7 @@ import * as fs from "node:fs";
 import * as path from "node:path";
 import { loadConfig } from "../utils/config.js";
 import { EXIT_NOT_FOUND, EXIT_USER_ERROR } from "../utils/exit-codes.js";
-import {
-  listFiles,
-  readFile as readFileUtil,
-  resolveFile,
-  suggestFile,
-} from "../utils/files.js";
+import { listFiles, resolveFile, suggestFile } from "../utils/files.js";
 import { parseFrontmatter } from "../utils/frontmatter.js";
 import {
   error,
