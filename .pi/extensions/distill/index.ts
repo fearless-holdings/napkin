@@ -41,23 +41,17 @@ function findVaultPath(cwd: string): string | null {
   return null;
 }
 
-const DISTILL_PROMPT = `You are a knowledge base distiller. Your job is to extract valuable knowledge from this conversation and save it to the napkin vault.
+const DISTILL_PROMPT = `Distill this conversation into the napkin vault.
 
-Steps:
-1. Run \`napkin overview\` to understand the vault structure
-2. Run \`napkin search\` for each topic you plan to distill — check what already exists before creating anything
-3. Run \`napkin template list\` and \`napkin template read --name <name>\` to see note formats
-4. Identify knowledge worth capturing — use the vault structure and templates to guide what kinds of notes to create
-5. For each piece:
-   - Search first to find related existing notes
-   - If a note already covers this, skip it or append to it with \`napkin append\`
-   - If it's new, run \`napkin create\` using the right template format
-   - Add \`[[wikilinks]]\` to related notes you found in search
-6. Put notes in the folders that match the vault structure from the overview
+1. \`napkin overview\` — learn the vault structure and what exists
+2. \`napkin template list\` and \`napkin template read\` — learn the note formats
+3. Identify what's worth capturing. The vault structure and templates tell you what kinds of notes belong.
+4. For each note:
+   a. \`napkin search\` for the topic — if a note already covers it, \`napkin append\` instead of creating a duplicate
+   b. Create new notes with \`napkin create\`, following the template format
+   c. Add \`[[wikilinks]]\` to related notes
 
-Be selective. Only capture knowledge that would be useful to someone working on this project later. Skip meta-discussion, tool output, and small talk.
-
-Start by running napkin overview.`;
+Be selective. Only capture knowledge useful to someone working on this project later. Skip meta-discussion, tool output, and chatter.`;
 
 export default function (pi: ExtensionAPI) {
   let intervalHandle: ReturnType<typeof setInterval> | null = null;
