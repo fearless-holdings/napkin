@@ -212,6 +212,16 @@ napkin config get --key search.limit  # Get a value
 napkin config set --key search.limit --value 50
 ```
 
+See [docs/configuration.md](docs/configuration.md) for all config options.
+
+### Graph — `napkin graph`
+
+```bash
+napkin graph                          # Interactive vault graph
+```
+
+Force-directed graph of vault notes and wikilinks. Click nodes to read content in a sidebar. On macOS, opens in a native window (Glimpse). On other platforms, opens in the browser. Configure with `graph.renderer` in config.
+
 ## File Resolution
 
 Files can be referenced two ways:
