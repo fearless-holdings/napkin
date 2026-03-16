@@ -47,7 +47,7 @@ Steps:
 1. Run \`napkin overview\` to understand the vault structure
 2. Run \`napkin search\` for each topic you plan to distill — check what already exists before creating anything
 3. Run \`napkin template list\` and \`napkin template read --name <name>\` to see note formats
-4. Identify knowledge worth capturing: decisions, architecture insights, guides, patterns
+4. Identify knowledge worth capturing — use the vault structure and templates to guide what kinds of notes to create
 5. For each piece:
    - Search first to find related existing notes
    - If a note already covers this, skip it or append to it with \`napkin append\`
