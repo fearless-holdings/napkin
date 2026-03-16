@@ -33,28 +33,14 @@ function getOverview(vaultPath: string): string | null {
 export default function (pi: ExtensionAPI) {
   let hasVault = false;
 
+  let cachedContext: string | null = null;
+
   pi.on("session_start", async (_event, ctx) => {
     const vaultPath = findVaultPath(ctx.cwd);
     if (!vaultPath) return;
 
-    const overview = getOverview(vaultPath);
-    hasVault = !!overview;
-
-    if (overview) {
-      pi.sendMessage(
-        {
-          customType: "napkin-context",
-          content:
-            "## Napkin vault context\n" +
-            "You have access to a napkin vault (Obsidian-compatible knowledge base). " +
-            "Here is the vault overview. Use `napkin search <query>` to find specific content, " +
-            "`napkin read <file>` to open files.\n\n" +
-            overview,
-          display: true,
-        },
-        { deliverAs: "nextTurn" },
-      );
-    }
+    cachedContext = getOverview(vaultPath);
+    hasVault = !!cachedContext;
 
     if (ctx.hasUI) {
       const theme = ctx.ui.theme;
@@ -67,5 +53,25 @@ export default function (pi: ExtensionAPI) {
         );
       }
     }
+  });
+
+  pi.on("before_agent_start", async (_event, _ctx) => {
+    if (!cachedContext) return;
+
+    const context = cachedContext;
+    cachedContext = null; // Only inject once
+
+    return {
+      message: {
+        customType: "napkin-context",
+        content:
+          "## Napkin vault context\n" +
+          "You have access to a napkin vault (Obsidian-compatible knowledge base). " +
+          "Here is the vault overview. Use `napkin search <query>` to find specific content, " +
+          "`napkin read <file>` to open files.\n\n" +
+          context,
+        display: true,
+      },
+    };
   });
 }
