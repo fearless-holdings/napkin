@@ -1,0 +1,24 @@
+import { type OutputOptions } from "../utils/output.js";
+export declare function properties(opts: OutputOptions & {
+    vault?: string;
+    file?: string;
+    counts?: boolean;
+    total?: boolean;
+    sort?: string;
+}): Promise<void>;
+export declare function propertySet(opts: OutputOptions & {
+    vault?: string;
+    file?: string;
+    name?: string;
+    value?: string;
+}): Promise<void>;
+export declare function propertyRemove(opts: OutputOptions & {
+    vault?: string;
+    file?: string;
+    name?: string;
+}): Promise<void>;
+export declare function propertyRead(opts: OutputOptions & {
+    vault?: string;
+    file?: string;
+    name?: string;
+}): Promise<void>;

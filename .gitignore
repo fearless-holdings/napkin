@@ -12,7 +12,6 @@ node_modules/
 *.tsbuildinfo
 
 # Build output
-dist
 
 # Bun
 bun.lockb

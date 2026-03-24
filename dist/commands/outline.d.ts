@@ -1,0 +1,7 @@
+import { type OutputOptions } from "../utils/output.js";
+export declare function outline(opts: OutputOptions & {
+    vault?: string;
+    file?: string;
+    format?: string;
+    total?: boolean;
+}): Promise<void>;

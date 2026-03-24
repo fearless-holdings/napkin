@@ -1,0 +1,7 @@
+import { type OutputOptions } from "../utils/output.js";
+export declare function wordcount(opts: OutputOptions & {
+    vault?: string;
+    file?: string;
+    words?: boolean;
+    characters?: boolean;
+}): Promise<void>;

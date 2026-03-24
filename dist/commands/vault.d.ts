@@ -1,0 +1,4 @@
+import { type OutputOptions } from "../utils/output.js";
+export declare function vault(opts: OutputOptions & {
+    vault?: string;
+}): Promise<void>;

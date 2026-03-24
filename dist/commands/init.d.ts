@@ -1,0 +1,7 @@
+import { type OutputOptions } from "../utils/output.js";
+export interface InitOptions extends OutputOptions {
+    path?: string;
+    template?: string;
+}
+export declare function init(opts: InitOptions): Promise<void>;
+export declare function initTemplates(opts: OutputOptions): Promise<void>;

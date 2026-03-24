@@ -1,0 +1,4 @@
+import type { OutputOptions } from "../utils/output.js";
+export declare function graph(_args: Record<string, unknown>, options: OutputOptions & {
+    vault?: string;
+}): Promise<void>;

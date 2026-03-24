@@ -1,0 +1,13 @@
+import { type OutputOptions } from "../utils/output.js";
+export declare function configShow(opts: OutputOptions & {
+    vault?: string;
+}): Promise<void>;
+export declare function configSet(opts: OutputOptions & {
+    vault?: string;
+    key?: string;
+    value?: string;
+}): Promise<void>;
+export declare function configGet(opts: OutputOptions & {
+    vault?: string;
+    key?: string;
+}): Promise<void>;

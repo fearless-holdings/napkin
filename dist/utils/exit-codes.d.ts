@@ -1,0 +1,5 @@
+export declare const EXIT_SUCCESS = 0;
+export declare const EXIT_ERROR = 1;
+export declare const EXIT_USER_ERROR = 2;
+export declare const EXIT_NOT_FOUND = 3;
+export declare const EXIT_NO_VAULT = 4;
