@@ -1,7 +1,7 @@
 ---
 name: napkin-distill
 description: Auto-distills conversation knowledge into the napkin vault
-model: claude-sonnet-4-6
+model: google-antigravity/gemini-3-flash
 thinking: off
 tools: read, write, bash, edit, find, grep
 ---

@@ -9,11 +9,13 @@ import type {
 interface DistillConfig {
   enabled: boolean;
   intervalMinutes: number;
+  model: { provider: string; id: string };
 }
 
 const DEFAULT_CONFIG: DistillConfig = {
   enabled: false,
   intervalMinutes: 60,
+  model: { provider: "google-antigravity", id: "gemini-3-flash" },
 };
 
 function loadDistillConfig(vaultPath: string): DistillConfig {
@@ -43,7 +45,7 @@ function findVaultPath(cwd: string): string | null {
 const DEFAULT_AGENT_CONTENT = `---
 name: napkin-distill
 description: Auto-distills conversation knowledge into the napkin vault
-model: claude-sonnet-4-6
+model: google-antigravity/gemini-3-flash
 thinking: off
 tools: read, write, bash, edit, find, grep
 ---
