@@ -374,7 +374,7 @@ export async function overview(
     }),
     human: () => {
       console.log(
-        dim("WORKFLOW: overview (you are here) → search <query> → read <file>"),
+        dim("WORKFLOW: overview (you are here) → scripts/napkin-search <query> → napkin read <file>"),
       );
       console.log("");
       if (context) {
@@ -401,7 +401,7 @@ export async function overview(
       console.log("");
       console.log(
         dim(
-          "HINT: Use napkin search <query> to find specific content. Use napkin read <file> to open a file.",
+          "HINT: Use scripts/napkin-search <query> for default qmd-backed retrieval, or scripts/napkin-search-broad <query> when working material is explicitly needed. Use napkin read <file> to open a file.",
         ),
       );
     },

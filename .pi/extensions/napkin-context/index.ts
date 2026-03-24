@@ -56,8 +56,8 @@ export default function (pi: ExtensionAPI) {
           "napkin-context",
           "## Napkin vault context\n" +
             "You have access to a napkin vault (Obsidian-compatible knowledge base). " +
-            "Here is the vault overview. Use `napkin search <query>` to find specific content, " +
-            "`napkin read <file>` to open files.\n\n" +
+            "Here is the vault overview. For broad retrieval, use `scripts/napkin-search <query>` by default, " +
+            "or `scripts/napkin-search-broad <query>` when working material is explicitly needed; use `napkin read <file>` to open files.\n\n" +
             overview,
           true,
         );
