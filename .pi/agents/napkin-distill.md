@@ -1,8 +1,8 @@
 ---
 name: napkin-distill
 description: Auto-distills conversation knowledge into the napkin vault
-model: google-antigravity/gemini-3-flash
-thinking: off
+model: opencode-go/minimax-m2.7
+thinking: low
 tools: read, write, bash, edit, find, grep
 ---
 Distill this conversation into the napkin vault.
